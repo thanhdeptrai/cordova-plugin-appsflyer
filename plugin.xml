@@ -20,22 +20,25 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="com.appsflyer.phonegap.plugins.appsflyer"
-        version="3.0">
+        id="cordova-plugin-appsflyer"
+        version="3.1">
     <name>AppsFlyer</name>
-    <description>Cordova AppsFlyer Plugin</description>
+    <description>Cordova plugin for integration with AppsFlyer SDK. It's a fork of the official version from AppsFlyer.</description>
     <license>Apache 2.0</license>
     <keywords>cordova,appsflyer</keywords>
-    <repo>https://github.com/AppsFlyerSDK/PhoneGap.git</repo>
+    <repo>https://github.com/DevDmitryHub/cordova-plugin-appsflyer.git</repo>
+
     <engines>
         <engine name="cordova" version=">=3.3.0"/>
     </engines>
 
+	<js-module src="www/appsflyer.js" name="appsflyer">
+		<clobbers target="window.plugins.appsFlyer" />
+	</js-module>
+
+
     <!-- android -->
     <platform name="android">
-        <js-module src="www/appsflyer.js" name="appsflyer">
-            <clobbers target="window.plugins.appsFlyer" />
-        </js-module>
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="AppsFlyerPlugin">
                 <param name="android-package" value="com.appsflyer.cordova.plugin.AppsFlyerPlugin"/>
@@ -61,10 +64,7 @@
     </platform>
 
     <!-- ios -->
-    <platform name="ios">
-        <js-module src="www/appsflyer.js" name="appsflyer">
-            <clobbers target="window.plugins.appsFlyer" />
-        </js-module>
+    <platform name="ios">    
         <config-file target="config.xml" parent="/*">
             <feature name="AppsFlyerPlugin">
                 <param name="ios-package" value="AppsFlyerPlugin" />
