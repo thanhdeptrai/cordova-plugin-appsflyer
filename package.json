@@ -21,6 +21,6 @@
     "cordova-ios"
   ],
   "author": "DevDmitryHub",
-  "license": "Apache 2.0"
+  "license": "Apache 2.0",
   "homepage": "https://github.com/DevDmitryHub/cordova-plugin-appsflyer#readme"
 }
