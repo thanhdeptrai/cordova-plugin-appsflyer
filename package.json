@@ -6,7 +6,7 @@
     "id": "cordova-plugin-appsflyer",
     "platforms": [
       "android",
-      "ios",
+      "ios"
     ]
   },
   "repository": {
@@ -18,7 +18,7 @@
     "appsflyer",
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-ios",
+    "cordova-ios"
   ],
   "author": "DevDmitryHub",
   "license": "Apache 2.0"
