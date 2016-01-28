@@ -1,6 +1,7 @@
-
 # Cordova / PhoneGap AppsFlyer Plugin for Android and iOS.
 
+[![NPM downloads](https://img.shields.io/npm/dt/cordova-plugin-appsflyer.svg?style=flat)]()
+[![GitHub issues](https://img.shields.io/github/issues/devdmitryhub/cordova-plugin-appsflyer.svg?style=plastic)]()
 
 ## Documentation
 - [Installation](#installation)
@@ -95,7 +96,8 @@ window.plugins.appsFlyer.sendTrackingWithEvent(eventName, eventValue);
 // window.plugins.appsFlyer.sendTrackingWithEvent(eventName, "");
 ```
 #### 4\.1 Rich In App Events Tracking API (optional)
-AppsFlyer’s rich in­app events provide advertisers with the ability to track any post­install event and attribute it to a media source and campaign.An in­app event is comprised of an event name and event parameters
+AppsFlyer’s rich in­app events provide advertisers with the ability to track any post­install event and attribute it to a media source and campaign.
+An in­app event is comprised of an event name and event parameters
 
 ```javascript
 var eventName = "af_add_to_cart";
