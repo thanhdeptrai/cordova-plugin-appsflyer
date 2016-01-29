@@ -10,6 +10,7 @@
 	- [Manual Installation](#manual-installation)
 	- [Phone Gap Build](#phonegap-build)  
 - [Usage API](#usage-api)
+- [Plugin wiki pages](https://github.com/DevDmitryHub/cordova-plugin-appsflyer/wiki)
 
 **Note:** integrated AppsFlyer SDK has restrictions for iOS archs (armv7, arm64, **not** _armv7s_)
 
