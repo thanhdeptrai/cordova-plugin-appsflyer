@@ -5,25 +5,24 @@ if(!window.CustomEvent) {
 		return e;
 	}
 }
-(function (global) {
-	var AppsFlyer;
-	AppsFlyer = function () {
+(function (global, platform) {
+	var AppsFlyer = function () {
 	};
 
 	AppsFlyer.prototype.initSdk = function (args) {
-    	cordova.exec(null, null, "AppsFlyerPlugin", "initSdk", args);
+    	platform.exec(null, null, "AppsFlyerPlugin", "initSdk", args);
 	};
 	
 	AppsFlyer.prototype.setCurrencyCode = function (currencyId) {
-    	cordova.exec(null, null, "AppsFlyerPlugin", "setCurrencyCode", [currencyId]);
+    	platform.exec(null, null, "AppsFlyerPlugin", "setCurrencyCode", [currencyId]);
 	};
 	
 	AppsFlyer.prototype.setAppUserId = function (customerUserId) {
-    	cordova.exec(null, null, "AppsFlyerPlugin", "setAppUserId", [customerUserId]);
+    	platform.exec(null, null, "AppsFlyerPlugin", "setAppUserId", [customerUserId]);
 	};
 
 	AppsFlyer.prototype.getAppsFlyerUID = function (callbackFn) {
-        cordova.exec(function(result){
+        platform.exec(function(result){
             callbackFn(result);
         }, null,
            "AppsFlyerPlugin",
@@ -32,11 +31,11 @@ if(!window.CustomEvent) {
 	};
 	
 	AppsFlyer.prototype.sendTrackingWithEvent = function(eventName, eventValue) {
-    	cordova.exec(null, null, "AppsFlyerPlugin", "sendTrackingWithEvent", [eventName,eventValue]);
+    	platform.exec(null, null, "AppsFlyerPlugin", "sendTrackingWithEvent", [eventName,eventValue]);
 	};
 
 	AppsFlyer.prototype.trackEvent = function(eventName, eventValue) {
-    	cordova.exec(null, null, "AppsFlyerPlugin", "trackEvent", [eventName,eventValue]);
+    	platform.exec(null, null, "AppsFlyerPlugin", "trackEvent", [eventName,eventValue]);
 	};
 
 	AppsFlyer.prototype.onInstallConversionDataLoaded = function(conversionData) {
@@ -49,10 +48,10 @@ if(!window.CustomEvent) {
 		global.document.dispatchEvent(event);
 	};
 
-	global.cordova.addConstructor(function() {
+	platform.addConstructor(function() {
 		if (!global.Cordova) {
-			global.Cordova = global.cordova;
-		};
+			global.Cordova = platform;
+		}
 
 		if (!global.plugins) {
 			global.plugins = {};
@@ -60,18 +59,5 @@ if(!window.CustomEvent) {
 
 		global.plugins.appsFlyer = new AppsFlyer();
 	});
-}(window));
-
-//document.addEventListener("deviceready", function(){
-//    var args = [];
-//    var devKey = "xxXXXXXxXxXXXXxXXxxxx8";  // your AppsFlyer devKey
-//    args.push(devKey);
-//    var userAgent = window.navigator.userAgent.toLowerCase();
-//                          
-//    if (/iphone|ipad|ipod/.test( userAgent )) {
-//        var appId = "123456789";            // your ios app id in app store
-//        args.push(appId);
-//    }
-//	window.plugins.appsFlyer.initSdk(args);
-//}, false);
+}(window, window.cordova));
 
