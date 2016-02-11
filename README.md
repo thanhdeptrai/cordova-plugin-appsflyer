@@ -11,6 +11,7 @@
 	- [Phone Gap Build](#phonegap-build)  
 - [Usage API](#usage-api)
 - [Plugin wiki pages](https://github.com/DevDmitryHub/cordova-plugin-appsflyer/wiki)
+- [Change Log](https://github.com/DevDmitryHub/cordova-plugin-appsflyer/releases)
 
 **Note:** integrated AppsFlyer SDK has restrictions for iOS archs (armv7, arm64, **not** _armv7s_)
 
@@ -44,7 +45,7 @@ Built against Phonegap >= 3.3.x.
 Add the following line to your config xml:
 
 ```xml
-<gap:plugin name="com.appsflyer.phonegap.plugins.appsflyer" version="1.0.1" />
+<gap:plugin name="cordova-plugin-appsflyer" version="3.3.1" />
 ```
 
 ## Usage API
@@ -98,7 +99,7 @@ add events dynamically by adding them directly to the application code.*
 window.plugins.appsFlyer.sendTrackingWithEvent(eventName, eventValue);
 // window.plugins.appsFlyer.sendTrackingWithEvent(eventName, "");
 ```
-#### 4\.1 Rich In App Events Tracking API (optional)
+##### 4\.1 Rich In App Events Tracking API (optional)
 AppsFlyer’s rich in­app events provide advertisers with the ability to track any post­install event and attribute it to a media source and campaign.
 An in­app event is comprised of an event name and event parameters
 
