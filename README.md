@@ -1,8 +1,8 @@
 # Cordova / PhoneGap AppsFlyer Plugin for Android and iOS.
 
-[![Version](https://img.shields.io/npm/v/cordova-plugin-appsflyer.svg?style=flat)]()
-[![Cordova status](https://img.shields.io/badge/cordova-v5.x-blue.svg?style=flat)]()
-[![NPM downloads](https://img.shields.io/npm/dt/cordova-plugin-appsflyer.svg?style=flat)]()
+[![Version](https://img.shields.io/npm/v/cordova-plugin-appsflyer.svg?style=flat)](#)
+[![Cordova status](https://img.shields.io/badge/cordova-v5.x-blue.svg?style=flat)](#)
+[![NPM downloads](https://img.shields.io/npm/dt/cordova-plugin-appsflyer.svg?style=flat)](#)
 [![Github Issues](http://githubbadges.herokuapp.com/devdmitryhub/cordova-plugin-appsflyer/issues.svg)](https://github.com/devdmitryhub/cordova-plugin-appsflyer/issues)
 
 ## Documentation
