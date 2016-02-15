@@ -1,8 +1,8 @@
 # Cordova / PhoneGap AppsFlyer Plugin for Android and iOS.
 
-[![Version](https://img.shields.io/npm/v/cordova-plugin-appsflyer.svg?style=flat)]()
-[![Cordova status](https://img.shields.io/badge/cordova-v5.x-blue.svg?style=flat)]()
-[![NPM downloads](https://img.shields.io/npm/dt/cordova-plugin-appsflyer.svg?style=flat)]()
+[![Version](https://img.shields.io/npm/v/cordova-plugin-appsflyer.svg?style=flat)](#)
+[![Cordova status](https://img.shields.io/badge/cordova-v5.x-blue.svg?style=flat)](#)
+[![NPM downloads](https://img.shields.io/npm/dt/cordova-plugin-appsflyer.svg?style=flat)](#)
 [![Github Issues](http://githubbadges.herokuapp.com/devdmitryhub/cordova-plugin-appsflyer/issues.svg)](https://github.com/devdmitryhub/cordova-plugin-appsflyer/issues)
 
 ## Documentation
@@ -11,8 +11,9 @@
 	- [Phone Gap Build](#phonegap-build)  
 - [Usage API](#usage-api)
 - [Plugin wiki pages](https://github.com/DevDmitryHub/cordova-plugin-appsflyer/wiki)
+- [Change Log](https://github.com/DevDmitryHub/cordova-plugin-appsflyer/releases)
 
-**Note:** integrated AppsFlyer SDK has restrictions for iOS archs (armv7, arm64, **not** _armv7s_)
+**Note:** integrated AppsFlyer SDK has restrictions for iOS archs (armv7, arm64, **not** _armv7s_) it's fixed since v.3.3.3
 
 
 ## Installation
@@ -44,7 +45,7 @@ Built against Phonegap >= 3.3.x.
 Add the following line to your config xml:
 
 ```xml
-<gap:plugin name="com.appsflyer.phonegap.plugins.appsflyer" version="1.0.1" />
+<gap:plugin name="cordova-plugin-appsflyer" version="3.3.1" />
 ```
 
 ## Usage API
@@ -98,7 +99,7 @@ add events dynamically by adding them directly to the application code.*
 window.plugins.appsFlyer.sendTrackingWithEvent(eventName, eventValue);
 // window.plugins.appsFlyer.sendTrackingWithEvent(eventName, "");
 ```
-#### 4\.1 Rich In App Events Tracking API (optional)
+##### 4\.1 Rich In App Events Tracking API (optional)
 AppsFlyer’s rich in­app events provide advertisers with the ability to track any post­install event and attribute it to a media source and campaign.
 An in­app event is comprised of an event name and event parameters
 
