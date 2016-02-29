@@ -1,8 +1,9 @@
 if(!window.CustomEvent) {
-	window.CustomEvent = function(type, config) {
-		var e = document.createEvent("CustomEvent");
-		e.initCustomEvent(type, true, true, config.detail);
-		return e;
+	window.CustomEvent =  function(type, config) {
+		console.log('CustomEvent', type, config);
+	}
+	window.CustomEvent2 =  function(type, config) {
+		console.log('CustomEvent2', type, config);
 	}
 }
 (function (global) {
@@ -45,7 +46,12 @@ if(!window.CustomEvent) {
         if (typeof data === "string") {
             data = JSON.parse(conversionData);
         }
-		event = new CustomEvent('onInstallConversionDataLoaded', {'detail': data});
+        if(window.CustomEvent2){
+        	event = new CustomEvent2('onInstallConversionDataLoaded', {'detail': data});
+        }
+        else{
+			event = new CustomEvent('onInstallConversionDataLoaded', {'detail': data});
+        }
 		global.document.dispatchEvent(event);
 	};
 
