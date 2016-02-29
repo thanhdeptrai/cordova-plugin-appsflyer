@@ -6,6 +6,84 @@ if(!window.CustomEvent) {
 	}
 }
 (function (global, platform) {
+	/** @constructor */
+	var PromiseDecorator = function(appsFlyer) {
+		this.appsFlyer = appsFlyer;
+		this.dataLoadedPromise = null;
+	};
+
+	/**
+	 * @private
+	 * @param {Function} resolve
+	 */
+	var subscribeOnInstallDataLoaded_ = function (resolve) {
+		document.addEventListener("onInstallConversionDataLoaded", function (data) {
+			resolve(data);
+		}, false);
+	};
+
+	var installData_ = null, deviceId_ = null;
+
+	PromiseDecorator.prototype.init = function (args) {
+		this.initSdk = new Promise(function (resolve, reject) {
+			document.addEventListener("deviceready", function () {
+				this.appsFlyer.initSdk(args);
+				resolve();
+			}.bind(this), false);
+		}.bind(this));
+		this.dataLoadedPromise = new Promise(function (resolve, reject) {
+			try {
+				subscribeOnInstallDataLoaded_(resolve);
+			} catch (e) {
+				reject(null);
+			}
+		});
+		this.deviceIdPromise = new Promise(function (resolve, reject) {
+			try {
+				this.whenSDKInited().then(function () {
+					this.appsFlyer.getAppsFlyerUID(function (deviceId) {
+						resolve(deviceId);
+					});
+				}.bind(this)).catch(function () {
+					reject(null);
+				});
+			} catch (e) {
+				reject(null);
+			}
+		}.bind(this));
+
+		this.whenInstallDataLoaded().then(function (data) {
+			installData_ = data;
+		});
+		this.whenDeviceIdReady().then(function (deviceId) {
+			deviceId_ = deviceId;
+		});
+
+		return this;
+	};
+
+	PromiseDecorator.prototype.whenInstallDataLoaded = function () {
+		return this.dataLoadedPromise;
+	};
+
+	PromiseDecorator.prototype.whenDeviceIdReady = function () {
+		return this.deviceIdPromise;
+	};
+
+	PromiseDecorator.prototype.whenSDKInited = function () {
+		return this.initSdk;
+	};
+
+	PromiseDecorator.prototype.getInstallConversionData = function () {
+		return installData_;
+	};
+
+	PromiseDecorator.prototype.getDeviceId = function () {
+		return deviceId_;
+	};
+
+
+	/** @constructor */
 	var AppsFlyer = function () {
 	};
 
@@ -46,6 +124,10 @@ if(!window.CustomEvent) {
         }
 		event = new CustomEvent('onInstallConversionDataLoaded', {'detail': data});
 		global.document.dispatchEvent(event);
+	};
+
+	AppsFlyer.prototype.usePromises = function () {
+		return new PromiseDecorator(this);
 	};
 
 	platform.addConstructor(function() {
