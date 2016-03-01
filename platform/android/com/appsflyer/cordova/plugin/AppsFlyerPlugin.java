@@ -114,14 +114,12 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 		ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
 		worker.schedule(task, 500, TimeUnit.MILLISECONDS);
 	}
-	@Override
-	public void overrideBackbutton(boolean override) {
-        
+
+ 	@Override
+    public Object onMessage(String id, Object data) {
+        return null;
     }
-	@Override
-	public void exitApp() {
-      
-    }
+    
 	private void sendTrackingWithEvent(JSONArray parameters) {
 		String eventName = null;
 		String eventValue = "";
