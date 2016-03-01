@@ -63,7 +63,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 			devKey = parameters.getString(0);
 			if(devKey != null){
 				AppsFlyerLib.setAppsFlyerKey(devKey);
-				initListener();
+				// initListener();
 			}
 		}
 		catch (JSONException e) 
