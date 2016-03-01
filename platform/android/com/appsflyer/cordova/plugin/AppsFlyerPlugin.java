@@ -63,7 +63,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 			devKey = parameters.getString(0);
 			if(devKey != null){
 				AppsFlyerLib.setAppsFlyerKey(devKey);
-				// initListener();
+				initListener();
 			}
 		}
 		catch (JSONException e) 
@@ -114,7 +114,14 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 		ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
 		worker.schedule(task, 500, TimeUnit.MILLISECONDS);
 	}
-	
+	@override
+	public void overrideBackbutton(boolean override) {
+        
+    }
+    @override
+	public void exitApp() {
+      
+    }
 	private void sendTrackingWithEvent(JSONArray parameters) {
 		String eventName = null;
 		String eventValue = "";
