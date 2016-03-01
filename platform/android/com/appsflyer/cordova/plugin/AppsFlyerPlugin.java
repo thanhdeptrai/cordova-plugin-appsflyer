@@ -114,11 +114,11 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 		ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
 		worker.schedule(task, 500, TimeUnit.MILLISECONDS);
 	}
-	@override
+	@Override
 	public void overrideBackbutton(boolean override) {
         
     }
-    @override
+	@Override
 	public void exitApp() {
       
     }
